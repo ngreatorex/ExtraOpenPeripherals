@@ -1,0 +1,21 @@
+[
+{
+  "modid" : "MekanismOpenPeripheral",
+  "name" : "MekanismOpenPeripheral",
+  "version" : "@VERSION@",
+  "url" : "http://www.openperipheral.info",
+  "credits" : "Everyone in #ComputerCraft, #OpenMods and #OpenCCSensors, also ChickenBones",
+  "authors": [
+    "Mikeemoo",
+    "cybcaoyibo",
+    "SinZ",
+    "theoriginalbit",
+    "Foone"
+  ],
+  "description": "Converts many blocks into ComputerCraft peripherals!",
+  "logoFile" : "",
+  "updateUrl" : "",
+  "parent" : "",
+  "screenshots": [
+  ]
+}]

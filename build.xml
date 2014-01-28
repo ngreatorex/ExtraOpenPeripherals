@@ -4,7 +4,7 @@
 	<import file="common.xml" />
 
 	<target name="set-env">
-		<property name="env.BUILD_NUMBER" value="0" />
+		<property name="env.BUILD_NUMBER" value="1" />
 		<property name="env.JOB_NAME" value="MekanismOpenPeripheral" />
 		<property name="mod.version" value="0.0.1" />
 		<property name="mod.name" value="MekanismOpenPeripheral" />

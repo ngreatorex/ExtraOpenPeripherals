@@ -12,8 +12,23 @@ public class AdapterITransmitter implements IPeripheralAdapter {
 		return TRANSMITTER_CLAZZ;
 	}
 
+	@LuaMethod(description = "Get the number of power conduits on the network", returnType = LuaType.NUMBER)
+	public int getTransmitterNetworkSize(IComputerAccess computer, ITransmitter tileEntityTransmitter) {
+		return tileEntityTransmitter.getTransmitterNetworkSize();
+	}
+
+  @LuaMethod(description = "Get the number of power consumers on the network", returnType = LuaType.NUMBER)
+	public int getTransmitterNetworkAcceptorSize(IComputerAccess computer, ITransmitter tileEntityTransmitter) {
+		return tileEntityTransmitter.getTransmitterNetworkAcceptorSize();
+	}
+
+	@LuaMethod(description = "Get the current energy requested in the network", returnType = LuaType.STRING)
+	public String getTransmitterNetworkNeeded(IComputerAccess computer, ITransmitter tileEntityTransmitter) {
+		return tileEntityTransmitter.getTransmitterNetworkNeeded();
+	}
+	
 	@LuaMethod(description = "Get the current energy flowing through the network", returnType = LuaType.STRING)
-	public String getNetworkFlow(IComputerAccess computer, ITransmitter tileEntityTransmitter) {
+	public String getTransmitterNetworkFlow(IComputerAccess computer, ITransmitter tileEntityTransmitter) {
 		return tileEntityTransmitter.getTransmitterNetworkFlow();
 	}
 }

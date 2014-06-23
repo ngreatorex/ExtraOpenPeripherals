@@ -12,7 +12,7 @@ import cpw.mods.fml.common.registry.TickRegistry;
 import cpw.mods.fml.relauncher.Side;
 
 @Mod(modid = ModInfo.ID, name = ModInfo.NAME, version = ModInfo.VERSION, dependencies = ModInfo.DEPENDENCIES)
-@NetworkMod(serverSideRequired = true, clientSideRequired = false, channels = { ModInfo.ID })
+@NetworkMod(serverSideRequired = true, clientSideRequired = false)
 public class MekanismOpenPeripheral {
 
 	@Instance(value = ModInfo.ID)

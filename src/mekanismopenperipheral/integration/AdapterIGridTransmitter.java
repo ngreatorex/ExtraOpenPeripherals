@@ -1,16 +1,13 @@
 package mekanismopenperipheral.integration;
 
 import openperipheral.api.*;
-import dan200.computer.api.IComputerAccess;
+import dan200.computercraft.api.peripheral.IComputerAccess;
 import mekanism.api.transmitters.DynamicNetwork;
 import mekanism.api.transmitters.IGridTransmitter;
 import mekanism.api.transmitters.ITransmitterNetwork;
 import mekanism.api.energy.IStrictEnergyAcceptor;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraftforge.common.ForgeDirection;
-import universalelectricity.core.block.IElectricalStorage;
-import universalelectricity.core.electricity.ElectricityDisplay;
-import universalelectricity.compatibility.Compatibility;
 
 public class AdapterIGridTransmitter implements IPeripheralAdapter {
 	private static final Class<?> TRANSMITTER_CLAZZ = IGridTransmitter.class;
@@ -40,12 +37,12 @@ public class AdapterIGridTransmitter implements IPeripheralAdapter {
 		return tileEntityTransmitter.getTransmitterNetworkFlow();
 	}
 	
-	@LuaMethod(description = "Get the current energy stored in all nodes on the network", returnType = LuaType.STRING)
-	public synchronized String getEnergyStoredInNetwork(IComputerAccess computer, IGridTransmitter<? extends DynamicNetwork> tileEntityTransmitter) {
+	@LuaMethod(description = "Get the current energy stored in all nodes on the network", returnType = LuaType.NUMBER)
+	public synchronized float getEnergyStoredInNetwork(IComputerAccess computer, IGridTransmitter<? extends DynamicNetwork<TileEntity, ?>> tileEntityTransmitter) {
 		float totalStored = 0;
 		
 		try {
-			DynamicNetwork<TileEntity, ? extends DynamicNetwork> network = tileEntityTransmitter.getTransmitterNetwork();
+			DynamicNetwork<TileEntity, ?> network = tileEntityTransmitter.getTransmitterNetwork();
 		
 			for(TileEntity acceptor : network.possibleAcceptors)
 			{
@@ -53,37 +50,22 @@ public class AdapterIGridTransmitter implements IPeripheralAdapter {
 				if (side == null)
 					continue;
 				
-				if (acceptor instanceof IElectricalStorage) {
-					float joulesStored = ((IElectricalStorage) acceptor).getEnergyStored();
-					totalStored += joulesStored;
-					
-					//System.err.println(String.format("Found Mekanism IElectricalStorage containing %f J at (%d, %d, %d)", joulesStored, acceptor.xCoord, acceptor.yCoord, acceptor.zCoord));
-				}
-				else if (acceptor instanceof ic2.api.tile.IEnergyStorage) {
-					int euStored = ((ic2.api.tile.IEnergyStorage) acceptor).getStored();
-					float joulesStored = euStored * Compatibility.IC2_RATIO;
-					totalStored += joulesStored;
-					
-					//System.err.println(String.format("Found IC2 IEnergyStorage containing %d EU (%f J) at (%d, %d, %d)", euStored, joulesStored, acceptor.xCoord, acceptor.yCoord, acceptor.zCoord));
-				}
-				else if (acceptor instanceof cofh.api.energy.IEnergyStorage) {
+				if (acceptor instanceof cofh.api.energy.IEnergyStorage) {
 					int rfStored = ((cofh.api.energy.IEnergyStorage) acceptor).getEnergyStored();
-					float joulesStored = rfStored * Compatibility.TE_RATIO;
-					totalStored += joulesStored;
+					totalStored += rfStored;
 					
-					//System.err.println(String.format("Found TE IEnergyStorage containing %d RF (%f J) at (%d, %d, %d)", rfStored, joulesStored, acceptor.xCoord, acceptor.yCoord, acceptor.zCoord));
+					System.err.println(String.format("Found TE IEnergyStorage containing %d RF at (%d, %d, %d)", rfStored, acceptor.xCoord, acceptor.yCoord, acceptor.zCoord));
 				} else if (acceptor instanceof cofh.api.energy.IEnergyHandler) {
 					int rfStored = ((cofh.api.energy.IEnergyHandler) acceptor).getEnergyStored(side);
-					float joulesStored = rfStored * Compatibility.TE_RATIO;
-					totalStored += joulesStored;
+					totalStored += rfStored;
 					
-					//System.err.println(String.format("Found TE IEnergyHandler containing %d RF (%f J) at (%d, %d, %d)", rfStored, joulesStored, acceptor.xCoord, acceptor.yCoord, acceptor.zCoord));
+					System.err.println(String.format("Found TE IEnergyHandler containing %d RF at (%d, %d, %d)", rfStored, acceptor.xCoord, acceptor.yCoord, acceptor.zCoord));
 				}
 			}
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
               
-		return ElectricityDisplay.getDisplay(totalStored, ElectricityDisplay.ElectricUnit.JOULES, 1, true);
+		return totalStored;
 	}
 }

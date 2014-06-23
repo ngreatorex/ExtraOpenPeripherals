@@ -1,7 +1,7 @@
 package mekanismopenperipheral;
 
 import openperipheral.api.*;
-import mekanismopenperipheral.integration.AdapterITransmitter;
+import mekanismopenperipheral.integration.AdapterIGridTransmitter;
 import cpw.mods.fml.common.Mod;
 import cpw.mods.fml.common.Loader;
 import cpw.mods.fml.common.Mod.Instance;
@@ -21,7 +21,7 @@ public class MekanismOpenPeripheral {
 	@Mod.EventHandler
 	public void init(FMLInitializationEvent evt) {
 		if (Loader.isModLoaded("Mekanism")) {
-			IntegrationRegistry.register(new AdapterITransmitter());
+			OpenPeripheralAPI.register(new AdapterIGridTransmitter());
 		}
 	}
 }

@@ -1,8 +1,8 @@
-package mekanismopenperipheral.integration;
+package extraopenperipherals.integration;
 
 import openperipheral.api.*;
 import dan200.computercraft.api.peripheral.IComputerAccess;
-import mekanismopenperipheral.ReflectionHelper;
+import extraopenperipherals.ReflectionHelper;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraftforge.common.ForgeDirection;
 

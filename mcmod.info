@@ -1,18 +1,14 @@
 [
 {
-  "modid" : "MekanismOpenPeripheral",
-  "name" : "MekanismOpenPeripheral",
+  "modid" : "ExtraOpenPeripherals",
+  "name" : "Extra Open Peripherals",
   "version" : "@VERSION@",
-  "url" : "http://www.openperipheral.info",
-  "credits" : "Everyone in #ComputerCraft, #OpenMods and #OpenCCSensors, also ChickenBones",
+  "url" : "https://github.com/ngreatorex/ExtraOpenPeripherals",
+  "credits" : "Thanks to the ComputerCraft and OpenPeripherals teams",
   "authors": [
-    "Mikeemoo",
-    "cybcaoyibo",
-    "SinZ",
-    "theoriginalbit",
-    "Foone"
+    "Neil Greatorex"
   ],
-  "description": "Converts many blocks into ComputerCraft peripherals!",
+  "description": "Converts some more blocks into ComputerCraft peripherals!",
   "logoFile" : "",
   "updateUrl" : "",
   "parent" : "",

@@ -1,7 +1,7 @@
-package mekanismopenperipheral;
+package extraopenperipherals;
 
 import openperipheral.api.*;
-import mekanismopenperipheral.integration.*;
+import extraopenperipherals.integration.*;
 import cpw.mods.fml.common.Mod;
 import cpw.mods.fml.common.Loader;
 import cpw.mods.fml.common.Mod.Instance;
@@ -13,10 +13,10 @@ import cpw.mods.fml.relauncher.Side;
 
 @Mod(modid = ModInfo.ID, name = ModInfo.NAME, version = ModInfo.VERSION, dependencies = ModInfo.DEPENDENCIES)
 @NetworkMod(serverSideRequired = true, clientSideRequired = false)
-public class MekanismOpenPeripheral {
+public class ExtraOpenPeripherals {
 
 	@Instance(value = ModInfo.ID)
-	public static MekanismOpenPeripheral instance;
+	public static ExtraOpenPeripherals instance;
 
 	@Mod.EventHandler
 	public void init(FMLInitializationEvent evt) {

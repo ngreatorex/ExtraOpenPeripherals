@@ -1,4 +1,4 @@
-package mekanismopenperipheral.integration;
+package extraopenperipherals.integration;
 
 import openperipheral.api.*;
 import dan200.computercraft.api.peripheral.IComputerAccess;

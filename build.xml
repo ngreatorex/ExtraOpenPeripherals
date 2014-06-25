@@ -1,13 +1,13 @@
-<project name="MekanismOpenPeripheral" default="build">
+<project name="ExtraOpenPeripherals" default="build">
 	<property environment="env" />
 
 	<import file="common.xml" />
 
 	<target name="set-env">
 		<property name="env.BUILD_NUMBER" value="1" />
-		<property name="env.JOB_NAME" value="MekanismOpenPeripheral" />
-		<property name="mod.version" value="0.0.1" />
-		<property name="mod.name" value="MekanismOpenPeripheral" />
+		<property name="env.JOB_NAME" value="ExtraOpenPeripherals" />
+		<property name="mod.version" value="0.0.2" />
+		<property name="mod.name" value="ExtraOpenPeripherals" />
 		<property name="mod.dir" value="mekanismopenperipheral" />
 		<echo message="Starting build for ${mod.name} v${mod.version}" />
 	</target>

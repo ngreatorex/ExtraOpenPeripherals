@@ -1,4 +1,4 @@
-package mekanismopenperipheral;
+package extraopenperipheral;
 
 import java.lang.reflect.Field;
 import java.lang.reflect.Method;
@@ -12,6 +12,8 @@ import com.google.common.base.Preconditions;
 import com.google.common.base.Strings;
 import com.google.common.base.Throwables;
 import com.google.common.collect.*;
+
+/* This class borrowed from OpenModsLib */
 
 public class ReflectionHelper {
 

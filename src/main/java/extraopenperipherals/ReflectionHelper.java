@@ -1,4 +1,4 @@
-package extraopenperipheral;
+package extraopenperipherals;
 
 import java.lang.reflect.Field;
 import java.lang.reflect.Method;

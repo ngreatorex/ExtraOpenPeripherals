@@ -54,12 +54,12 @@ public class AdapterIGridTransmitter implements IPeripheralAdapter {
 					int rfStored = ((cofh.api.energy.IEnergyStorage) acceptor).getEnergyStored();
 					totalStored += rfStored;
 					
-					//System.err.println(String.format("Found TE IEnergyStorage containing %d RF at (%d, %d, %d)", rfStored, acceptor.xCoord, acceptor.yCoord, acceptor.zCoord));
+					//System.err.println(String.format("Found TE IEnergyStorage (%s) containing %d RF at (%d, %d, %d)", acceptor.blockType != null ? acceptor.blockType.getUnlocalizedName() : "unknown block", rfStored, acceptor.xCoord, acceptor.yCoord, acceptor.zCoord));
 				} else if (acceptor instanceof cofh.api.energy.IEnergyHandler) {
 					int rfStored = ((cofh.api.energy.IEnergyHandler) acceptor).getEnergyStored(side);
 					totalStored += rfStored;
 					
-					//System.err.println(String.format("Found TE IEnergyHandler containing %d RF at (%d, %d, %d)", rfStored, acceptor.xCoord, acceptor.yCoord, acceptor.zCoord));
+					//System.err.println(String.format("Found TE IEnergyHandler (%s) containing %d RF at (%d, %d, %d)", acceptor.blockType != null ? acceptor.blockType.getUnlocalizedName() : "unknown block", rfStored, acceptor.xCoord, acceptor.yCoord, acceptor.zCoord));
 				}
 			}
 		} catch (Exception e) {

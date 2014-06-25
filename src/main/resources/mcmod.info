@@ -2,7 +2,7 @@
 {
   "modid" : "ExtraOpenPeripherals",
   "name" : "Extra Open Peripherals",
-  "version" : "@VERSION@",
+  "version" : "${version}",
   "url" : "https://github.com/ngreatorex/ExtraOpenPeripherals",
   "credits" : "Thanks to the ComputerCraft and OpenPeripherals teams",
   "authors": [

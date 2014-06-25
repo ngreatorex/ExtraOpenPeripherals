@@ -1,7 +1,7 @@
 package mekanismopenperipheral;
 
 import openperipheral.api.*;
-import mekanismopenperipheral.integration.AdapterIGridTransmitter;
+import mekanismopenperipheral.integration.*;
 import cpw.mods.fml.common.Mod;
 import cpw.mods.fml.common.Loader;
 import cpw.mods.fml.common.Mod.Instance;
@@ -22,6 +22,9 @@ public class MekanismOpenPeripheral {
 	public void init(FMLInitializationEvent evt) {
 		if (Loader.isModLoaded("Mekanism")) {
 			OpenPeripheralAPI.register(new AdapterIGridTransmitter());
+		}
+		if (Loader.isModLoaded("EnderIO")) {
+			OpenPeripheralAPI.register(new AdapterTilePowerMonitor());
 		}
 	}
 }

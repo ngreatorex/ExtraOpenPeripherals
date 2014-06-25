@@ -19,6 +19,9 @@ archivesBaseName = "ExtraOpenPeripherals"
 
 minecraft {
 	version = "1.6.4-9.11.1.964"
+
+	replaceIn "extraopenperipherals/ModInfo.java"
+	replace "@VERSION@", rootProject.version
 }
 
 processResources

@@ -3,3 +3,21 @@ bin/
 download/
 Thumbs.db
 .DS_Store
+.gradle/
+gradle-app.setting
+
+# GMCP plugin
+/minecraft
+
+# eclipse
+eclipse/assets/
+.settings
+.metadata
+.classpath
+.project
+bin
+
+# intellij
+out
+*.idea
+*.iml
